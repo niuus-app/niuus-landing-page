@@ -1,17 +1,156 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>La Mia Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nius - Rivoluziona il Modo di Leggere le Notizie</title>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 50px; }
-    h1 { color: #4CAF50; }
-    button { padding: 10px 20px; font-size: 16px; }
+    /* Stili di base */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    section {
+      padding: 2rem 0;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #4CAF50;
+    }
+    .content-section {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #4CAF50;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .btn:hover {
+      background: #43a047;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    @media (min-width: 768px) {
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .col {
+        flex: 1;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Niuus</h1>
-  <p>work in progress</p>
+  <!-- Header -->
+  <header>
+    <h1>Nius</h1>
+    <p>Stop alle ingiustizie: abbonamenti ingiusti, redirect inutili e ADS invasivi</p>
+  </header>
+
+  <!-- Container principale -->
+  <div class="container">
+
+    <!-- Sezione introduzione -->
+    <section id="intro">
+      <h2>Benvenuto in Nius</h2>
+      <div class="content-section">
+        <p>Nius è la risposta al problema di abbonamenti scadenti e interfacce sovraccariche. Abbiamo ideato una piattaforma unica dove puoi accedere alle notizie da molteplici fonti in modalità freemium. Il tutto sia sul sito web che, presto, direttamente dal tuo smartphone!</p>
+        <a href="#download" class="btn">Scopri l'App Mobile</a>
+      </div>
+    </section>
+
+    <!-- Sezione Il Problema -->
+    <section id="problem">
+      <h2>Il Problema</h2>
+      <div class="content-section">
+        <ul>
+          <li>Politiche di abbonamento ingiuste, dove utenti a pagamento non percepiscono un reale valore aggiunto.</li>
+          <li>Esperienza utente compromessa dall’invasione di ADS e da interfacce confuse.</li>
+          <li>Assistenza clienti insufficiente e servizi non all’altezza delle aspettative.</li>
+          <li>Accesso scomodo a fonti multiple e redirect non funzionali.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sezione La Soluzione -->
+    <section id="solution">
+      <h2>La Soluzione</h2>
+      <div class="content-section">
+        <p>Immagina un’unica app che ti permetta di leggere articoli da diverse fonti senza distrazioni:</p>
+        <ul>
+          <li>Nessun clutter grazie all’eliminazione degli ADS invasivi.</li>
+          <li>Accesso freemium con funzionalità AI che valorizzano l’esperienza utente.</li>
+          <li>Un unico punto di lettura per tutte le tue notizie preferite.</li>
+        </ul>
+        <p>Stop a pratiche commerciali ingiuste e ai redirect che complicano la lettura. Con Nius, hai tutto a portata di mano in un ambiente pulito e intuitivo.</p>
+      </div>
+    </section>
+
+    <!-- Sezione Il Team -->
+    <section id="team">
+      <h2>Il Nostro Team</h2>
+      <div class="content-section">
+        <p>Siamo un team multidisciplinare che unisce competenze in informatica e gestione aziendale:</p>
+        <ul>
+          <li><strong>Daniele Ferneti</strong> - Computer Science | Tel: +39 340 5606689</li>
+          <li><strong>Gianluca Farinaccio</strong> - Computer Science | Tel: +39 320 2938573</li>
+          <li><strong>Samuele Moscati</strong> - Business Management | Tel: +39 366 1607002</li>
+        </ul>
+        <p>Siamo inoltre alla ricerca di un UX/UI Designer per potenziare ulteriormente l’esperienza utente della nostra piattaforma.</p>
+      </div>
+    </section>
+
+    <!-- Sezione App Mobile -->
+    <section id="download">
+      <h2>Scarica l'App Mobile</h2>
+      <div class="content-section">
+        <p>Presto disponibile per iOS e Android. Registrati per restare aggiornato sul lancio!</p>
+        <a href="#" class="btn">Registrati Ora</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nius. Tutti i diritti riservati.</p>
+  </footer>
 </body>
 </html>
