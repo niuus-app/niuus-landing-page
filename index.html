@@ -3,154 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nius - Rivoluziona il Modo di Leggere le Notizie</title>
+  <title>Nius - Rivoluziona il tuo modo di leggere le notizie</title>
   <style>
-    /* Stili di base */
-    body {
+    /* RESET DI BASE */
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      line-height: 1.6;
+      box-sizing: border-box;
     }
-    header {
-      background: #4CAF50;
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
       color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
+      overflow-x: hidden; /* evita scrolling orizzontale */
     }
-    header h1 {
-      margin: 0;
+
+    /* SEZIONE HERO (INTRO) */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background: linear-gradient(135deg, #4CAF50 30%, #181818 100%);
+      position: relative;
+    }
+    
+    /* ELEMENTI COLORATI DI SFONDO (EFFETTO FLUO) */
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.6;
+      z-index: 0;
+    }
+    .hero::before {
+      top: 10%;
+      left: -10%;
+      width: 300px;
+      height: 300px;
+      background: #FF5252;
+    }
+    .hero::after {
+      bottom: 5%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: #FFD700;
+    }
+
+    /* CONTENITORE TESTO */
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+      z-index: 1; /* per stare sopra i gradienti fluo */
+      margin: 1rem;
+      text-align: left;
+    }
+
+    .hero-content h1 {
       font-size: 3rem;
+      margin-bottom: 1rem;
     }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 1rem;
+
+    .hero-content p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
-    section {
-      padding: 2rem 0;
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #fff;
+      color: #121212;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
-    section h2 {
+
+    .cta-btn:hover {
+      background: #e0e0e0;
+    }
+
+    /* CONTENITORE IMMAGINE SMARTPHONE */
+    .hero-mockup {
+      flex: 1;
+      max-width: 500px;
+      z-index: 1; /* per stare sopra i gradienti fluo */
+      margin: 1rem;
       text-align: center;
+    }
+
+    .hero-mockup img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* SEZIONE PROBLEMA/SOLUZIONE */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
       margin-bottom: 1rem;
       color: #4CAF50;
     }
-    .content-section {
-      background: #f9f9f9;
-      padding: 1.5rem;
-      border-radius: 5px;
-      box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+
+    .section-content {
+      background: #1f1f1f;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
     }
-    ul {
+
+    .section-content ul {
       list-style: disc;
-      margin-left: 1.5rem;
-    }
-    .btn {
-      display: inline-block;
-      background: #4CAF50;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 5px;
+      margin-left: 2rem;
       margin-top: 1rem;
-      text-align: center;
     }
-    .btn:hover {
-      background: #43a047;
+
+    /* SEZIONE TEAM */
+    .team-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
     }
+    .team-list li {
+      padding: 0.5rem 0;
+    }
+
+    /* SEZIONE FOOTER */
     footer {
-      background: #333;
-      color: #fff;
+      background: #181818;
       text-align: center;
       padding: 1rem;
     }
+
+    /* MEDIA QUERIES */
     @media (min-width: 768px) {
-      .row {
-        display: flex;
-        justify-content: space-between;
+      .hero {
+        padding: 5rem;
       }
-      .col {
-        flex: 1;
-        padding: 1rem;
+      .hero-content h1 {
+        font-size: 4rem;
+      }
+      .hero-content p {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Nius</h1>
-    <p>Stop alle ingiustizie: abbonamenti ingiusti, redirect inutili e ADS invasivi</p>
-  </header>
 
-  <!-- Container principale -->
-  <div class="container">
+  <!-- SEZIONE HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Nius</h1>
+      <p>
+        L’app che rivoluziona il modo di leggere e vivere le notizie:
+        stop a pubblicità invasive, abbonamenti ingiusti e redirect inutili.
+      </p>
+      <a href="#problema" class="cta-btn">Scopri di più</a>
+    </div>
+    <div class="hero-mockup">
+      <!-- Sostituisci src con la tua immagine/mockup -->
+      <img src="https://via.placeholder.com/300x600.png?text=Mockup+App+Nius" alt="Mockup App Nius">
+    </div>
+  </section>
 
-    <!-- Sezione introduzione -->
-    <section id="intro">
-      <h2>Benvenuto in Nius</h2>
-      <div class="content-section">
-        <p>Nius è la risposta al problema di abbonamenti scadenti e interfacce sovraccariche. Abbiamo ideato una piattaforma unica dove puoi accedere alle notizie da molteplici fonti in modalità freemium. Il tutto sia sul sito web che, presto, direttamente dal tuo smartphone!</p>
-        <a href="#download" class="btn">Scopri l'App Mobile</a>
-      </div>
-    </section>
+  <!-- SEZIONE PROBLEMA -->
+  <section id="problema">
+    <h2>Il Problema</h2>
+    <div class="section-content">
+      <ul>
+        <li>Politiche di abbonamento poco trasparenti.</li>
+        <li>Interfacce cariche di ADS e scarsa usabilità.</li>
+        <li>Supporto clienti limitato e nessun reale valore aggiunto.</li>
+        <li>Fonti frammentate e redirect continui.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Sezione Il Problema -->
-    <section id="problem">
-      <h2>Il Problema</h2>
-      <div class="content-section">
-        <ul>
-          <li>Politiche di abbonamento ingiuste, dove utenti a pagamento non percepiscono un reale valore aggiunto.</li>
-          <li>Esperienza utente compromessa dall’invasione di ADS e da interfacce confuse.</li>
-          <li>Assistenza clienti insufficiente e servizi non all’altezza delle aspettative.</li>
-          <li>Accesso scomodo a fonti multiple e redirect non funzionali.</li>
-        </ul>
-      </div>
-    </section>
+  <!-- SEZIONE SOLUZIONE -->
+  <section id="soluzione">
+    <h2>La Soluzione</h2>
+    <div class="section-content">
+      <p>Nius è un'unica piattaforma dove puoi leggere articoli da più editori, senza interruzioni e con funzioni di intelligenza artificiale che arricchiscono l’esperienza di lettura.</p>
+      <ul>
+        <li>Accesso freemium senza annunci invasivi.</li>
+        <li>Un solo luogo per tutte le fonti di notizie preferite.</li>
+        <li>Funzionalità AI per scoprire e approfondire le notizie che contano di più per te.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Sezione La Soluzione -->
-    <section id="solution">
-      <h2>La Soluzione</h2>
-      <div class="content-section">
-        <p>Immagina un’unica app che ti permetta di leggere articoli da diverse fonti senza distrazioni:</p>
-        <ul>
-          <li>Nessun clutter grazie all’eliminazione degli ADS invasivi.</li>
-          <li>Accesso freemium con funzionalità AI che valorizzano l’esperienza utente.</li>
-          <li>Un unico punto di lettura per tutte le tue notizie preferite.</li>
-        </ul>
-        <p>Stop a pratiche commerciali ingiuste e ai redirect che complicano la lettura. Con Nius, hai tutto a portata di mano in un ambiente pulito e intuitivo.</p>
-      </div>
-    </section>
+  <!-- SEZIONE TEAM -->
+  <section id="team">
+    <h2>Il Nostro Team</h2>
+    <div class="section-content">
+      <p>
+        Siamo un team multidisciplinare unito dall’obiettivo di migliorare 
+        l’esperienza di fruizione delle notizie.
+      </p>
+      <ul class="team-list">
+        <li><strong>Daniele Ferneti</strong> - Computer Science | Tel: +39 340 5606689</li>
+        <li><strong>Gianluca Farinaccio</strong> - Computer Science | Tel: +39 320 2938573</li>
+        <li><strong>Samuele Moscati</strong> - Business Management | Tel: +39 366 1607002</li>
+      </ul>
+      <p>
+        Stiamo cercando un UX/UI Designer per rendere l'esperienza su web e mobile
+        ancora più straordinaria.
+      </p>
+    </div>
+  </section>
 
-    <!-- Sezione Il Team -->
-    <section id="team">
-      <h2>Il Nostro Team</h2>
-      <div class="content-section">
-        <p>Siamo un team multidisciplinare che unisce competenze in informatica e gestione aziendale:</p>
-        <ul>
-          <li><strong>Daniele Ferneti</strong> - Computer Science | Tel: +39 340 5606689</li>
-          <li><strong>Gianluca Farinaccio</strong> - Computer Science | Tel: +39 320 2938573</li>
-          <li><strong>Samuele Moscati</strong> - Business Management | Tel: +39 366 1607002</li>
-        </ul>
-        <p>Siamo inoltre alla ricerca di un UX/UI Designer per potenziare ulteriormente l’esperienza utente della nostra piattaforma.</p>
-      </div>
-    </section>
-
-    <!-- Sezione App Mobile -->
-    <section id="download">
-      <h2>Scarica l'App Mobile</h2>
-      <div class="content-section">
-        <p>Presto disponibile per iOS e Android. Registrati per restare aggiornato sul lancio!</p>
-        <a href="#" class="btn">Registrati Ora</a>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Nius. Tutti i diritti riservati.</p>
+    <p>&copy; 2025 Nius - Tutti i diritti riservati.</p>
   </footer>
+
 </body>
 </html>
