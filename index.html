@@ -3,161 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nius - Rivoluziona il tuo modo di leggere le notizie</title>
+  <title>Nius - La Rivoluzione della Lettura delle Notizie</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* RESET DI BASE */
-    * {
+    /* Variabili CSS per la palette */
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #FF5252;
+      --accent-color: #FFD700;
+      --bg-dark: #121212;
+      --bg-secondary: #1f1f1f;
+      --text-color: #ffffff;
+      --transition-speed: 0.3s;
+    }
+
+    /* Reset di base */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #121212;
-      color: #fff;
-      overflow-x: hidden; /* evita scrolling orizzontale */
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* SEZIONE HERO (INTRO) */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--transition-speed);
+    }
+    
+    a:hover {
+      color: var(--primary-color);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* HERO SECTION */
     .hero {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 2rem;
-      background: linear-gradient(135deg, #4CAF50 30%, #181818 100%);
-      position: relative;
+      background: linear-gradient(135deg, var(--primary-color) 40%, var(--bg-dark) 100%);
+      overflow: hidden;
     }
-    
-    /* ELEMENTI COLORATI DI SFONDO (EFFETTO FLUO) */
+    /* Elementi decorativi a effetto fluido */
     .hero::before,
     .hero::after {
       content: "";
       position: absolute;
       border-radius: 50%;
-      filter: blur(100px);
+      filter: blur(150px);
       opacity: 0.6;
       z-index: 0;
     }
     .hero::before {
-      top: 10%;
-      left: -10%;
-      width: 300px;
-      height: 300px;
-      background: #FF5252;
+      top: -10%;
+      left: -20%;
+      width: 400px;
+      height: 400px;
+      background: var(--secondary-color);
     }
     .hero::after {
-      bottom: 5%;
+      bottom: -20%;
       right: -10%;
-      width: 300px;
-      height: 300px;
-      background: #FFD700;
+      width: 350px;
+      height: 350px;
+      background: var(--accent-color);
     }
 
-    /* CONTENITORE TESTO */
-    .hero-content {
-      flex: 1;
-      max-width: 600px;
-      z-index: 1; /* per stare sopra i gradienti fluo */
+    .hero-content, .hero-mockup {
+      position: relative;
+      z-index: 1;
       margin: 1rem;
-      text-align: left;
+    }
+
+    .hero-content {
+      max-width: 600px;
     }
 
     .hero-content h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
+      font-weight: 700;
+      animation: fadeInDown 1s ease-out;
     }
 
     .hero-content p {
       font-size: 1.2rem;
-      line-height: 1.6;
       margin-bottom: 1.5rem;
+      animation: fadeIn 1.2s ease-out;
     }
 
     .cta-btn {
       display: inline-block;
-      padding: 0.8rem 1.5rem;
       background: #fff;
-      color: #121212;
-      font-weight: 600;
-      font-size: 1rem;
+      color: var(--bg-dark);
+      padding: 0.8rem 1.8rem;
       border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s ease;
+      font-weight: 600;
+      transition: background var(--transition-speed), transform var(--transition-speed);
     }
-
     .cta-btn:hover {
       background: #e0e0e0;
+      transform: translateY(-3px);
     }
 
-    /* CONTENITORE IMMAGINE SMARTPHONE */
     .hero-mockup {
-      flex: 1;
-      max-width: 500px;
-      z-index: 1; /* per stare sopra i gradienti fluo */
-      margin: 1rem;
       text-align: center;
     }
 
     .hero-mockup img {
-      width: 100%;
       max-width: 320px;
-      border-radius: 10px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      animation: fadeInUp 1s ease-out;
     }
 
-    /* SEZIONE PROBLEMA/SOLUZIONE */
+    /* Keyframes per animazioni */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* SEZIONI GENERALI */
     section {
       padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
       text-align: center;
     }
 
     section h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #4CAF50;
+      color: var(--primary-color);
+      animation: fadeIn 1s ease-out;
     }
 
     .section-content {
-      background: #1f1f1f;
+      max-width: 900px;
+      margin: auto;
+      background: var(--bg-secondary);
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       text-align: left;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .section-content p,
+    .section-content ul {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
     }
 
     .section-content ul {
-      list-style: disc;
-      margin-left: 2rem;
-      margin-top: 1rem;
+      list-style: inside;
+      padding-left: 1.5rem;
     }
 
-    /* SEZIONE TEAM */
-    .team-list {
+    /* TEAM SECTION - Layout flessibile */
+    .team-members {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
       margin-top: 1rem;
     }
-    .team-list li {
-      padding: 0.5rem 0;
+    .team-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--primary-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 280px;
+      transition: transform var(--transition-speed);
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+    .team-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .team-card p {
+      font-size: 1rem;
     }
 
-    /* SEZIONE FOOTER */
+    /* FOOTER */
     footer {
-      background: #181818;
+      background: var(--bg-secondary);
+      padding: 1.5rem 1rem;
       text-align: center;
-      padding: 1rem;
+      font-size: 0.9rem;
     }
 
-    /* MEDIA QUERIES */
+    /* Media Query per layout responsive */
     @media (min-width: 768px) {
       .hero {
-        padding: 5rem;
+        padding: 4rem;
       }
       .hero-content h1 {
         font-size: 4rem;
@@ -165,49 +233,49 @@
       .hero-content p {
         font-size: 1.3rem;
       }
+      .team-members {
+        flex-wrap: nowrap;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- SEZIONE HERO -->
-  <section class="hero">
+  <header class="hero">
     <div class="hero-content">
       <h1>Nius</h1>
-      <p>
-        L’app che rivoluziona il modo di leggere e vivere le notizie:
-        stop a pubblicità invasive, abbonamenti ingiusti e redirect inutili.
-      </p>
-      <a href="#problema" class="cta-btn">Scopri di più</a>
+      <p>L'app che rivoluziona il modo di leggere le notizie: stop a pubblicità invasive, abbonamenti ingiusti e redirect inutili.</p>
+      <a href="#soluzione" class="cta-btn">Scopri di più</a>
     </div>
     <div class="hero-mockup">
-      <!-- Sostituisci src con la tua immagine/mockup -->
-      <img src="https://via.placeholder.com/300x600.png?text=Mockup+App+Nius" alt="Mockup App Nius">
+      <!-- Sostituisci l'URL con il tuo mockup reale -->
+      <img src="https://via.placeholder.com/320x600.png?text=Mockup+App+Nius" alt="Mockup App Nius">
     </div>
-  </section>
+  </header>
 
-  <!-- SEZIONE PROBLEMA -->
+  <!-- SEZIONE IL PROBLEMA -->
   <section id="problema">
     <h2>Il Problema</h2>
     <div class="section-content">
+      <p>Oggi, gli abbonamenti ingiusti, l’esperienza utente compromessa e l’eccesso di ADS creano un ambiente di lettura frustrante e inefficiente.</p>
       <ul>
-        <li>Politiche di abbonamento poco trasparenti.</li>
-        <li>Interfacce cariche di ADS e scarsa usabilità.</li>
-        <li>Supporto clienti limitato e nessun reale valore aggiunto.</li>
-        <li>Fonti frammentate e redirect continui.</li>
+        <li>Politiche di abbonamento non trasparenti.</li>
+        <li>Interfacce sovraccariche di ADS e redirect continui.</li>
+        <li>Supporto clienti limitato e scarso valore aggiunto.</li>
       </ul>
     </div>
   </section>
 
-  <!-- SEZIONE SOLUZIONE -->
+  <!-- SEZIONE LA SOLUZIONE -->
   <section id="soluzione">
     <h2>La Soluzione</h2>
     <div class="section-content">
-      <p>Nius è un'unica piattaforma dove puoi leggere articoli da più editori, senza interruzioni e con funzioni di intelligenza artificiale che arricchiscono l’esperienza di lettura.</p>
+      <p>Nius unisce tutte le tue fonti di notizie in un'unica piattaforma, offrendo una modalità di fruizione freemium pulita e intuitiva arricchita da funzionalità AI.</p>
       <ul>
-        <li>Accesso freemium senza annunci invasivi.</li>
-        <li>Un solo luogo per tutte le fonti di notizie preferite.</li>
-        <li>Funzionalità AI per scoprire e approfondire le notizie che contano di più per te.</li>
+        <li>Accesso senza ADS invasive.</li>
+        <li>Un hub unico per le tue notizie preferite.</li>
+        <li>Funzioni di intelligenza artificiale per approfondire i contenuti.</li>
       </ul>
     </div>
   </section>
@@ -216,19 +284,22 @@
   <section id="team">
     <h2>Il Nostro Team</h2>
     <div class="section-content">
-      <p>
-        Siamo un team multidisciplinare unito dall’obiettivo di migliorare 
-        l’esperienza di fruizione delle notizie.
-      </p>
-      <ul class="team-list">
-        <li><strong>Daniele Ferneti</strong> - Computer Science | Tel: +39 340 5606689</li>
-        <li><strong>Gianluca Farinaccio</strong> - Computer Science | Tel: +39 320 2938573</li>
-        <li><strong>Samuele Moscati</strong> - Business Management | Tel: +39 366 1607002</li>
-      </ul>
-      <p>
-        Stiamo cercando un UX/UI Designer per rendere l'esperienza su web e mobile
-        ancora più straordinaria.
-      </p>
+      <p>Siamo un team multidisciplinare che lavora per rivoluzionare l'esperienza di lettura, combinando competenze in informatica e business.</p>
+      <div class="team-members">
+        <div class="team-card">
+          <h3>Daniele Ferneti</h3>
+          <p>Computer Science<br>Tel: +39 340 5606689</p>
+        </div>
+        <div class="team-card">
+          <h3>Gianluca Farinaccio</h3>
+          <p>Computer Science<br>Tel: +39 320 2938573</p>
+        </div>
+        <div class="team-card">
+          <h3>Samuele Moscati</h3>
+          <p>Business Management<br>Tel: +39 366 1607002</p>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">Siamo alla ricerca di un UX/UI Designer per rendere l’esperienza su web e mobile ancora più straordinaria.</p>
     </div>
   </section>
 
